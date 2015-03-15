@@ -192,8 +192,8 @@ This is the content of my super blog post.
 
 Para poder crear más rápido los posts podemos hacer uso de un script:
 
-* Para rST: `make_entry.py`, de Nafiul Islam [Descárgalo aquí](http://nafiulis.me/making-a-static-blog-with-pelican.html#automation).
-* Para md: `make_entrymd.py`, modifiqué el archivo para que funcione con md. [Descárgalo aquí](https://github.com/italofarfan)
+* Para reStructuredText: `make_entry.py`, de [Nafiul Islam](http://nafiulis.me/making-a-static-blog-with-pelican.html#automation). [Descárgalo aquí](https://github.com/italofarfan/blog/blob/master/make_entry.py).
+* Para Markdown: `make_entrymd.py`, modifiqué el archivo para que funcione con md. [Descárgalo aquí](https://github.com/italofarfan/blog/blob/master/make_entrymd.py).
 
 Para ejecutarlo nos ubicamos en el directorio principal:
 ```bash
