@@ -3,30 +3,45 @@ Date: 2015-3-1 11:46
 Category: tutoriales
 Tags: python, pelican
 Slug: mi-blog-con-pelican-y-github
-Summary: Guía para crear tu blog o web con Github, dominio propio y Pelican (generador de sitios web escrito en Python).
+Summary: Tutorial para crear tu blog con Github, dominio propio y Pelican (generador de sitios web estáticos escrito en Python). Flexibilidad y facilidad para insertar notebooks de ipython, líneas de código e incluso ejemplos con D3 para hacer visualización de datos
 
 
-Cansado de lidiar con el editor de wordpress (y antes con el de blogger) decidí buscar herramientas que me ofrecieran construir un blog más limpio, integrar código y los notebooks de python más fácilmente y sobre todo alojamiento gratuito. A continuación describiré como configuré mi blog con dominio propio usando Pelican y espero te sirva si no eres informático.
+Hace un par de meses decidí mudar mi blog de Wordpress a Github (usando Pelican) por la flexibilidad y facilidad para insertar notebooks de ipython, líneas de código e incluso ejemplos con D3 para hacer visualización de datos. Para escribir los posts puedes usar Markdown o reStructuredText, es igual de fácil que escribir entradas con el editor de Wordpress o Blogger.
 
-## Ingredientes:
+## 1. Ingredientes
 
 - Pelican: un generador de sitios estáticos construido con Python. Hay muchos más, me quede con Pelican por la comunidad activa (lo que significa: más documentación, plugins, plantillas).
-- GitHub Pages: que permite alojar webs para ti y tus proyectos alojadas en tu repositorio Github.
-- Dominio propio: no es obligatorio. Si no lo tienes la url de tu blog será usuario.github.io
+- GitHub Pages: que permite alojar webs personales y de tus proyectos desde tu repositorio GitHub.
+- Dominio propio: no es obligatorio. Si no lo tienes la url de tu blog será `tu-usuario.github.io`.
 
-## Configuración de GitHub Pages
-Crea un repositorio en github con el nombre: usuario.github.io 
+## 2. Configuración de GitHub Pages
+Entra a  [GitHub](http://github.com/) y crea un nuevo repositorio usando tu nombre de usuario, quedará de la forma: `tu-usuario.github.io`.
+![Crear repositorio GitHub]({filename}images/crear-repositorio.png)
 
-Si sigues las instrucciones de [Github Pages](http://pages.github.com/) solo crea el repositorio (primer paso), nada más. Allí es donde se alojará el contenido de tu blog/web.
+En este nuevo repositorio se alojará el contenido de tu blog. También podrías haber seguido las instrucciones de [Github Pages](http://pages.github.com/) para crear tu nuevo repositorio, pero sólo hasta el paso 1 (crear nuevo repositorio), ya que ellos te animarán a usar otro generador de sitios web, llamado Jekyll (que creo esta construido en Ruby).
 
-## Instalación y configuración de Pelican
+La dirección de tu nuevo repositorio será: `https://github.com/usuario/usuario.github.io`. Mi repositorio con mi usuario *italofarfan* quedo así:
 
-Tienes que instalar Pelican y Markdown, este último es opcional. Markdown es un lenguaje sencillo para generar contenido HTML sin necesidad de saber HTML. Pelican usa reStructuredText (rST) que también es fácil de manejar. [Más info sobre paquetes](http://docs.getpelican.com/en/3.1.1/getting_started.html#installing-pelican).
+![Verificar repositorio GitHub]({filename}images/verificar-repositorio.png)
+
+## 3. Instalación y configuración de Pelican
+
+Hay que instalar Pelican y Markdown. Markdown es un lenguaje sencillo para generar contenido HTML sin necesidad de saber HTML. Pelican ya viene con  reStructuredText (reST) que también sirve para generar contenido HTML y es parte del proyecto Doctilus dentro de la comunidad de Python, sin embargo para Markdown existe un procesador amigable que te muestra los cambios mientras escribes y podría facilitarte las cosas. Yo por el momento uso los dos.
+
+![Haroopad -Escribiendo mi primer artículo]({filename}images/haroopad.png)
+
+Empecemos con la instalación. Abrimos un terminal (Crtl+ Alt + T) e instalamos [PIP](https://pip.pypa.io/en/latest/installing.html) (un herramienta para instalar paquetes escritos en Python). Si ya lo tienes instalado salta al paso siguiente:
+
+```bash
+$ sudo apt-get install python-pip
+```
+
+Instalamos Pelican y Markdown:
 ```bash
 $ pip install pelican markdown
 ```
 
-Crea una carpeta por ejemplo, `blog`. Esta contendrá todo lo necesario para crear tu blog/web, dentro de ella ejecutaremos `pelican quickstart`. Pelican por medio de un diálogo te ayuda con la configuración.
+Crea una carpeta llamada, por ejemplo, `blog`. Esta contendrá todo lo necesario para crear tu blog/web, dentro de ella ejecutaremos `pelican quickstart`. Pelican por medio de un diálogo te ayudará con la configuración.
 ```bash
 $ mkdir blog
 $ cd blog
@@ -87,9 +102,9 @@ En pages podrás crear los archivos `about me`, `contact`, etc. Pelican los reco
 
 Pelican convertirá tus artículos guardados en `content` en html y los guardará en la carpeta `output`. Más adelante comentaré cómo hacer para que tengan el siguiente estilo: midominio.com/2015/01/31/nombre-de-mi posts.html
 
-Es en `output` donde se generará tu sitio web y es donde tendrás que colocar el archivo CNAME si deseas utilizar un dominio propio (tudominio.com).
+Es en `output` donde se generará tu sitio web y es donde tendrás que colocar el archivo CNAME si deseas utilizar un dominio propio (tudominio.com). Más adelante hablaremos de ello.
 
-## Subiendo nuestros cambios a la nube
+### Configurando nuestro repositorio GitHub
 
 Tenemos que inicializar un repositorio github desde nuestra carpeta output y conectarlo con nuestro repositorio remoto creado anteriormente (usuario.github.io).
 ```bash
@@ -102,7 +117,7 @@ $ git push origin master
 ```
 Ya estás listo para publicar pero ****no todas las plantillas ofrecen soporte a todos los plugins****. Por ejemplo Disqus, que permite integrar comentarios en tu blog, no funciona con la plantilla por defecto. La plantilla que usa Amy y la mía funcionan. [Amy Hanlon tiene una guía en inglés muy completa](http://mathamy.com/migrating-to-github-pages-using-pelican.html).
 
-## Plugins y plantillas
+### Plugins y plantillas
 Yo estoy utilizando la plantilla pelican-bootstrap3 y el plugin Tipue Search para agregar el cuadro de búsqueda en la parte superior derecha. La plantilla es responsive.
 
 Para usarlas lo más rápido es clonar el repositorio plugins.
@@ -129,10 +144,11 @@ THEME = "pelican-themes/pelican-bootstrap3"
 Si aún te quedan dudas echa un vistazo [al archivo pelicancof.py y publishconf.py de DandyDev creador de plantilla Booostrap3](https://github.com/DandyDev/dandydev.net)
 
 Más información:
-* [Documentación de la plantilla Bootstrap3](https://github.com/DandyDev/pelican-bootstrap3)
-*  [Migrating to GitHub Pages using Pelican por Amy Hanlon](http://mathamy.com/migrating-to-github-pages-using-pelican.html)
 
-## Agregando Disqus, Google Analytics y Addthis (botones para compartir)
+* [Documentación de la plantilla Bootstrap3](https://github.com/DandyDev/pelican-bootstrap3)
+* [Migrating to GitHub Pages using Pelican por Amy Hanlon](http://mathamy.com/migrating-to-github-pages-using-pelican.html)
+
+### Agregando Disqus, Google Analytics y Addthis (botones para compartir)
 Se supone que ya tienes una cuenta en estos servicios gratuitos.
 
 * Disqus: necesitas de un `short_name`, para ello registra tu web: https://disqus.com/admin/create/ Indica el nombre de tu sitio (SITE NAME) y una DISQUS_URL. Este último será tu shortname. Finalmente obtendrás algo como esto: http://short_name.disqus.com/admin/settings
@@ -150,18 +166,19 @@ Más información en:
 
 * [Howto Setup Comments with Disqus in Pelican](http://querbalken.net/howto-setup-comments-with-disqus-in-pelican-en.html)
 
-## Configurando dominio propio
+## 4. Configurando dominio propio
 * Crea un archivo `CNAME` y dentro escribe tu dominio, por ejemplo: tudominio.com
 * Guarda el archivo `CNAME` en la carpeta output
-* Entra al panel de control de tu proveedor de dominio y crea un registro CNAME que apunte a tu_usuario.github.io o un registro A añadiendo los siguientes IP `192.30.252.153` y `192.30.252.154`. En mi caso Strato solo me déjo agregar un IP e igual funciona.
+* Entra al panel de control de tu proveedor de dominio y crea un registro CNAME que apunte a tu_usuario.github.io o un registro A añadiendo las IP `192.30.252.153` y `192.30.252.154`. En mi caso Strato solo me déjo agregar un IP e igual funciona.
 
 Más info:
+
 * [Ayuda de Github para crear un registro CNAME](https://help.github.com/articles/tips-for-configuring-a-cname-record-with-your-dns-provider/)
 * [Ayuda de Github para crear un registro A](https://help.github.com/articles/tips-for-configuring-an-a-record-with-your-dns-provider/)
 
-## Escribiendo artículos en reStructuredText(rST) y Markdown(md)
+## 5. Escribiendo posts con reST y Md.
 
-Creamos un archivo con la extensión .rst o .md y lo guardamos en la carpeta content.
+Creamos un archivo con la extensión `.rst` o `.md` y lo guardamos en la carpeta `content`.
 
 #### Ejemplo en reStructuredTex
 ~~~
@@ -174,6 +191,8 @@ Mi primer post
 :slug: mi-primer-post
 :author: TuNombre
 :summary: Versión corta para el índice y feeds
+
+Escribe aquí el contenido de tu primer post
 ~~~
 #### Ejemplo en Markdown
 ```md
@@ -188,14 +207,16 @@ Summary: Short version for index and feeds
 This is the content of my super blog post.
 ```
 
-## Automatizar creación de archivos
+Para escribir post con Markdown estoy usando [Haroopress](http://pad.haroopress.com/user.html) que desde el Menu/Insert tienes todos los comandos necesarios. Y para reStructuredText estoy usando SublimeText.
 
-Para poder crear más rápido los posts podemos hacer uso de un script:
+### Automatizando la creación de archivos
 
-* Para reStructuredText: `make_entry.py`, de [Nafiul Islam](http://nafiulis.me/making-a-static-blog-with-pelican.html#automation). [Descárgalo aquí](https://github.com/italofarfan/blog/blob/master/make_entry.py).
-* Para Markdown: `make_entrymd.py`, modifiqué el archivo para que funcione con md. [Descárgalo aquí](https://github.com/italofarfan/blog/blob/master/make_entrymd.py).
+Para poder crear más rápido los posts podemos hacer uso de un script que deberás guardar en el directorio principal (`blog`):
 
-Para ejecutarlo nos ubicamos en el directorio principal:
+* reStructuredText: `make_entry.py`, de [Nafiul Islam](http://nafiulis.me/making-a-static-blog-with-pelican.html#automation). [Descárgalo aquí](https://github.com/italofarfan/blog/blob/master/make_entry.py).
+* Markdown: `make_entrymd.py`, modifiqué el archivo para que funcione con md. [Descárgalo aquí](https://github.com/italofarfan/blog/blob/master/make_entrymd.py).
+
+Para ejecutarlo nos ubicamos en el directorio principal, reemplaza "nueva entrada" por el nombre que desees:
 ```bash
  $ python make_entrymd.py "Nueva Entrada"
 ```
@@ -218,26 +239,18 @@ status: draft
 El status `draft` te permite crear artículos en estado borrador. Muy útil si aún no deseas publicar o quieres que otra persona ĺo revise. Pelican no mostrará tu artículo hasta que  borres la línea `status: draft` o la cambies por `status: published` . Hasta entonces lo guardará en la carpeta `drafts`.
 
 
-## Posts con la forma: /año/mes/dia/nombre-de-post.html
+### Posts con la forma: /año/mes/dia/nombre-post.html
 
-Agregamos al archivo `pelicanconf.py` lo siguiente:
+Si deseas que tus posts tengan la forma mi_usuario.github.io/2015/03/10/primera-entrada.html tendremos que agregar en el archivo `pelicanconf.py` lo siguiente:
 ```python
 # Formating URLs
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 ```
-## Generando nuestra web
+## 5. Generando tu blog
 
-Ahora ya tienes todo para escribir tus artículos y generar tu web. ¡Adelante!
+Ahora ya tienes tienes escrito tu primer artículo toca generar tu web desde el directorio principal (blog):
 
-#### Crea un post (si usas el script `make_entry/md.py`)
-```bash
- $ python make_entrymd.py "Nombre de tu nuevo post"
-```
-#### Escribe un artículo
-Entra a la carpeta `content`, abre el archivo que acabas de crear y escribe un artículo. Yo estoy usando [Haroopress](http://pad.haroopress.com/user.html) un procesador para Markdown que te permite ver los cambios en tiempo real mientras escribes. También puedes usar Vim, Emacs o SublimeText.
-
-#### Genera tu web
 ```bash
 $ cd blog
 $ make devserver
@@ -250,18 +263,18 @@ Y para salir escribe:
 $ make stopserver
 ```
 #### Empuja los cambios a tu repositorio
-Recuerda hacerlo desde la carpeta output
+
+Ahora toca alojar tu blog en tu repositorio remoto GitHub. Recuerda hacerlo desde la carpeta output.
 ```bash
 $ cd output
 $ git add --all
 $ git commit -m "commit message"
 $ git push origin master
 ```
-Visita tu web.
 
-# FIN
+**Y eso es todo, ya sabes todo lo necesario para mantener tu blog ;)**.
 
-## Comandos extras en caso de accidentes
+## 6. Comandos extras en caso de accidentes
 
 #### Inicializar repositorio 
 ```bash
@@ -281,11 +294,12 @@ $ git commit -m "commit message"
 $ git push origin master
 ```
 
-## Referencias
-* [Observa el archivo pelicancof.py y publishconf.py de DandyDev creador de plantilla Booostrap3](https://github.com/DandyDev/dandydev.net)
-* [Cheat Sheet para Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+## 7. Referencias
+* [Archivo pelicancof.py y publishconf.py del blog de DandyDev, creador de plantilla Booostrap3](https://github.com/DandyDev/dandydev.net).
+* [Cheat Sheet para Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
 * [Amy Hanlon, Migrating to Github Pages using Pelican](http://mathamy.com/migrating-to-github-pages-using-pelican.html).
-* [Pelican Boostrap3 Theme](https://github.com/DandyDev/pelican-bootstrap3)
+* [Documentación de Pelican - Getting Started](http://docs.getpelican.com/en/3.1.1/getting_started.html#installing-pelican)
+* [Pelican Boostrap3 Theme](https://github.com/DandyDev/pelican-bootstrap3).
 
 
 

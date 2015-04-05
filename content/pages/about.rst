@@ -14,7 +14,7 @@ Hola, gracias por visitar mi blog.
 * Twitter: `italoFFVV <http://twitter.com/italoFFVV>`_.
 * `Linkedin <https://www.linkedin.com/in/italoffvv>`_.
 * email: ``hola[at]italofarfan[dot]com``.
-* ScoopIt: `Data Analytics and Visualization (English & Español)<http://www.scoop.it/t/viz-analytics>`_.
+* ScoopIt: `Data Analytics and Visualizatión en inglés y español <http://www.scoop.it/t/viz-analytics/>`_.
 
 **Formación:** estudié Ingeniería Electrónica en la `UTP <http://www.utp.edu.pe/>`_, donde recibí formación en matemáticas, estadística, programación, hardware, administración de empresas y hasta historia del arte. Luego hice el Máster en Inteligencia Artificial en la UPM donde conocí Python y descubrí el apasionante mundo de trabajar con datos. Actualmente realizo el Doctorado en Inteligencia Artificial con en el `Grupo de Robótica Cognitiva Computacional <http://www.dia.fi.upm.es/~ccr/people.html>`_ del Departamento de Inteligencia Artificial (Escuela Superior de Ingenieros Informáticos - `UPM <http://www.upm.es/>`_).
 

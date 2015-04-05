@@ -30,9 +30,11 @@ CATEGORY_FEED_RSS = 'feeds/%s.rss.xml'
 # Theme
 THEME = "pelican-themes/pelican-bootstrap3"
 
+STATIC_PATHS = ['images']
+
 # Plugins
 PLUGIN_PATH = 'pelican-plugins'
-PLUGINS = ['tipue_search', 'pelican_youtube','liquid_tags.youtube']
+PLUGINS = ['tipue_search', 'pelican_youtube','liquid_tags.youtube', 'liquid_tags.img']
 
 # Blogroll
 # LINKS = (('Leonardo Cloud', 'http://productos.viz-analytics.com/leonardo/'),
