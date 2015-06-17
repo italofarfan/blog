@@ -3,8 +3,8 @@
 from __future__ import unicode_literals
 
 AUTHOR = u'Italo Farf\xe1n Vera'
-SITENAME = u'Italo Farf\xe1n'
-SITEURL = ''
+SITENAME = u'Italo Farf\xe1n Vera'
+SITEURL = 'http://italofarve.github.io'
 
 PATH = 'content'
 
@@ -42,9 +42,9 @@ PLUGINS = ['tipue_search', 'pelican_youtube','liquid_tags.youtube', 'liquid_tags
 #          ('Python España', 'http://www.es.python.org/'),)
 
 # Social widget
-SOCIAL = (('twitter', 'http://twitter.com/italoFFVV'),
-          ('github', 'https://github.com/italofarfan'),
-          ('linkedIn', 'http://www.linkedin.com/in/italoffvv/'),
+SOCIAL = (('twitter', 'http://twitter.com/italofarve'),
+          ('github', 'https://github.com/italofarve'),
+          ('linkedIn', 'http://www.linkedin.com/in/italofarve/'),
           ('Google Plus', 'https://plus.google.com/u/0/103161686610742017026/posts'),
           ('RSS', 'http://italofarfan.com/feeds/all.rss.xml'),
           )
