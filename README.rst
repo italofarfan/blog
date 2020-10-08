@@ -1,6 +1,6 @@
-www dot italofarfan dot com
+www dot italofarve dot com
 ============================
-En este repositorio se encuentra el código que compila mi blog www.italofarfan.com
+En este repositorio se encuentra el código que compila mi blog www.italofarve.com
 
 Esta compilado con `Pelican <http://docs.getpelican.com/>`_ y como hosting uso `GitHub Pages <http://pages.github.com/>`_.
 
